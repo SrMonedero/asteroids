@@ -20,6 +20,13 @@ public:
     
 private:
     cocos2d::Sprite* shipSprite;
+    bool touchingLeft;
+    bool touchingRight;
+    cocos2d::Size visibleSize;
+    const int speed = 25;
+    
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
 };
 
 #endif // __MAIN_SCENE_H__
