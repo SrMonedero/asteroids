@@ -4,24 +4,14 @@ USING_NS_CC;
 
 Scene* MainScene::createScene()
 {
-    // 'scene' is an autorelease object
     auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
     auto layer = MainScene::create();
-    
-    // add layer as a child to scene
     scene->addChild(layer);
-    
-    // return the scene
     return scene;
 }
 
-// on "init" you need to initialize your instance
 bool MainScene::init()
 {
-    //////////////////////////////
-    // 1. super init first
     if ( !Layer::init() )
     {
         return false;
@@ -40,9 +30,12 @@ bool MainScene::init()
 }
 
 void MainScene::update(float delta){
-    auto position = shipSprite->getPosition();
+    auto rotation = shipSprite->getRotation();
+    rotation += 25*delta;
+    shipSprite->setRotation(rotation);
+    /*auto position = shipSprite->getPosition();
     position.x -= 250 * delta;
     if (position.x  < 0 - (shipSprite->getBoundingBox().size.width / 2))
         position.x = this->getBoundingBox().getMaxX() + shipSprite->getBoundingBox().size.width/2;
-    shipSprite->setPosition(position);
+    shipSprite->setPosition(position);*/
 }
