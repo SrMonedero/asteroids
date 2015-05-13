@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FD72E933-E578-4274-AB58-B3695641849A</string>
+	<string>3736200D-2135-4712-B6E6-D15CC6BD8295</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Asteroids</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>17FA966F91C8D60C28BA75E40F939DB25DB09B49</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Asteroids</string>
+			<string>asteroids</string>
 		</dict>
 	</array>
 </dict>
