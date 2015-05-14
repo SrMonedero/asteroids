@@ -1,4 +1,5 @@
 #include "MainScene.h"
+#include <cmath>
 
 USING_NS_CC;
 
@@ -27,11 +28,10 @@ bool MainScene::init()
     shipSprite->setScale(0.15, 0.15);
     this->addChild(shipSprite);
     
-    auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->setSwallowTouches(true);
+    auto listener1 = EventListenerTouchAllAtOnce::create();
     
-    listener1->onTouchBegan = CC_CALLBACK_2(MainScene::onTouchBegan, this);
-    listener1->onTouchEnded = CC_CALLBACK_2(MainScene::onTouchEnded, this);
+    listener1->onTouchesBegan = CC_CALLBACK_2(MainScene::onTouchesBegan, this);
+    listener1->onTouchesEnded = CC_CALLBACK_2(MainScene::onTouchesEnded, this);
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
@@ -56,21 +56,19 @@ void MainScene::update(float delta){
     shipSprite->setPosition(position);*/
 }
 
-bool MainScene::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
-{
-    cocos2d::log("You touched %f, %f", touch->getLocationInView().x, touch->getLocationInView().y);
-    if (touch->getLocationInView().x < visibleSize.width/2) {
+void MainScene::onTouchesBegan(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *event) {
+    for (int i = 0; i < MIN(2, touches.size()); i++) {
+    }
+    /*if (touch->getLocationInView().x < visibleSize.width/2) {
         touchingLeft = true;
         touchingRight = false;
     } else {
         touchingLeft = false;
         touchingRight = true;
-    }
-    return true;
+    }*/
 }
 
-void MainScene::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
-{
+void MainScene::onTouchesEnded(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *event) {
     touchingRight = false;
     touchingLeft = false;
 }

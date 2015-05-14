@@ -24,9 +24,11 @@ private:
     bool touchingRight;
     cocos2d::Size visibleSize;
     const int speed = 25;
+    int firstTouchID;
+    int secondTouchID;
     
-    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
-    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchesBegan(const std::vector<cocos2d::Touch*>&touches, cocos2d::Event* event);
+    void onTouchesEnded(const std::vector<cocos2d::Touch*>&touches, cocos2d::Event* event);
 };
 
 #endif // __MAIN_SCENE_H__
