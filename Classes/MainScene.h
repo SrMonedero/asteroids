@@ -20,6 +20,14 @@ public:
     
 private:
     cocos2d::Sprite* shipSprite;
+    bool touchingLeft;
+    bool touchingRight;
+    cocos2d::Size visibleSize;
+    const int rotationSpeed = 150;
+    const int translationSpeed = 200;
+    void onTouchesBegan(const std::vector<cocos2d::Touch* > &touches, cocos2d::Event* event);
+    void onTouchesEnded(const std::vector<cocos2d::Touch* > &touches, cocos2d::Event* event);
+    
 };
 
 #endif // __MAIN_SCENE_H__
